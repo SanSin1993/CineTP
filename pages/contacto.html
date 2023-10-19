@@ -40,9 +40,86 @@
             </nav>
         </div>
 	</header>
-	<main id="contacto">
-                 
-	</main>
+    <main class="main">
+        <div>
+            <section class="contact" id="contact">                
+             
+                <div class="row">
+              
+                   <form action="https://formsubmit.co/CineTP@voyager.comm" method="POST">
+                      <input type="text" placeholder="Nombre y Apellido:" class="box" name="Nombre">
+                      <input type="email" placeholder="Email:" class="box" name="Email">
+                      <input type="text" placeholder="Telefono:" class="box" name="Telefono">
+                      <textarea class="box" placeholder="Mensaje:" id="textarea" cols="30" rows="10" name="Consulta" ></textarea>
+                      <input type="submit" value="Enviar" class="btn">
+                   </form>
+             
+                   <div class="contact-info">
+                      <h3>Contacto:</h3>
+                      <div class="icons">
+                         <i class="fas fa-location-arrow"></i>
+                         <div class="info">
+                            <p>Fuerza Aerea 2520, Cordoba, Argentina</p>
+                         </div>
+                      </div>
+                      <div class="icons">
+                         <i class="fas fa-envelope"></i>
+                         <div class="info">
+                            <p>CineTP@voyager.com</p>
+                         </div>
+                      </div>
+                      <div class="icons">
+                         <i class="fas fa-phone"></i>
+                         <div class="info">
+                            <p>+542219876543</p>
+                         </div>
+                      </div>
+                      <div class="share">
+                         <a href="#" class="fab fa-facebook-f"></a>
+                         <a href="#" class="fab fa-twitter"></a>
+                         <a href="#" class="fab fa-instagram"></a>
+                      </div>
+                   </div>
+                   <div class="cajaFormu">
+                    <h2>¡Recibe en tu bandeja de entrada las últimas novedades del mundo del cine suscribiéndote a nuestro boletín!</h2>
+                   <form id="signup-form" action="/suscribirse" method="POST">
+                    <div class="step">
+                      <h2>Paso 1: Información personal</h2>
+                      <label for="name">Nombre completo:</label>
+                      <input type="text" id="name" name="name" required>
+                      <label for="email">Correo electrónico:</label>
+                      <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="step">
+                      <h2>Paso 2: Preferencias de cine</h2>
+                      <p>Seleccione sus géneros de cine favoritos:</p>
+                      <input type="checkbox" id="accion" name="generos[]" value="accion" required>
+                      <label for="accion">Acción</label>
+                      <input type="checkbox" id="aventura" name="generos[]" value="aventura" required>
+                      <label for="aventura">Aventura</label>
+                      <input type="checkbox" id="drama" name="generos[]" value="drama" required>
+                      <label for="drama">Drama</label>
+                      <input type="checkbox" id="comedia" name="generos[]" value="comedia" required>
+                      <label for="comedia">Comedia</label>
+                    </div>
+                    <div class="step">
+                      <h2>Paso 3: Confirmación</h2>
+                      <p>Por favor, revise su información antes de enviar:</p>
+                      <p>Nombre completo: <span id="review-name"></span></p>
+                      <p>Correo electrónico: <span id="review-email"></span></p>
+                      <p>Géneros de cine favoritos:</p>
+                      <ul id="review-generos"></ul>
+                    </div>
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+                    <input type="submit" id="submitBtn" value="Suscribirse" style="display:none;" required>
+                  </form>
+                   </div>
+                </div>
+             </section>
+             
+        </div>
+    </main>
     <footer>
         <div>
             <div class="footerFirma">
