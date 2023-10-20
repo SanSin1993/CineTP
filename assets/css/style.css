@@ -83,84 +83,80 @@
     width: 3rem;
   }
   
-  /*pie de pagina*/
-  
-  footer{
-    background-color: rgb(0, 0, 0);
-    color: rgba(255, 255, 255, 0.5);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    padding: 1rem;
-    border: solid 2px rgba(255, 255, 255, 0.5);
-  }
-  
-  .socialMediaList{
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #socialMediaList li{
-    list-style-type: none;
-  }
-  
-  #socialMediaList li a img{
-   margin: auto;
-  }
-  
-  .footerImg{
-    height: 2rem;
-    width: 2rem;
-  }
-  .footerLogo{
-    height: 3rem;
-    width: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .footerFirma{
-    display: flex;
-    flex-direction:row;
-    align-items: center;
-    align-content: center;
-    margin-bottom: -0.8rem;
-    font-family: autodex;
-  }
-  
-  .disclaimer p{
-    margin: 0;
-    font-size: 0.8rem;
-  }
-  
-  .mapa{
-    height: 6rem;
-    width: 12rem;
-  }
-  
-  .socialMediaItem{
-    margin: auto;
-  }
-  
-  /*cartelera*/
-  
-  .main{
-    width: 100%;
-    background: rgb(14, 11, 11); 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;   
-    background-image: url(./recourses/bg-image.jpg);
-    background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-size: cover;
-  }
-  
-  .pelicula {
+  /* Pie de página */
+footer {
+  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.socialMediaList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+#socialMediaList li {
+  list-style-type: none;
+}
+
+#socialMediaList li a img {
+  margin: auto;
+}
+
+.footerImg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.footerLogo {
+  height: 3rem;
+  width: 2rem;
+  margin-bottom: 1rem;
+}
+
+.footerFirma {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'autodex';
+  margin-bottom: -0.8rem;
+}
+
+.disclaimer p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.mapa {
+  height: 6rem;
+  width: 12rem;
+}
+
+.socialMediaItem {
+  margin: auto;
+}
+
+/* Cartelera */
+.main {
+  width: 100%;
+  background: rgb(14, 11, 11);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-image: url(./recourses/bg-image.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.pelicula {
   width: 20rem;
   margin: 1rem;
   background-color: rgb(0, 0, 0);
@@ -168,27 +164,27 @@
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  }
-  
-  .pelicula img {
+}
+
+.pelicula img {
   width: 100%;
-  }
-  
-  .peliculaInfo {
+}
+
+.peliculaInfo {
   color: rgb(240, 227, 227);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0.5rem 0.5rem;
+  padding: 0.5rem;
   letter-spacing: 0.5px;
-  }
-  
-  .peliculaInfo h3 {
-  margin-top: 0;
+}
+
+.peliculaInfo h3 {
+  margin: 0;
   padding-left: 1rem;
-  }
-  
-  .overview {
+}
+
+.overview {
   background: rgb(0, 0, 0);
   padding: 0.5rem;
   position: absolute;
@@ -200,585 +196,591 @@
   transition: transform 0.4s ease-in-out;
   font-size: small;
   color: white;
-  }
-  
-  .pelicula:hover .overview {
+}
+
+.pelicula:hover .overview {
   transform: translateY(0);
-  }
-  
-  .pelicula:hover{
-    cursor: pointer;
-    box-shadow: 0px 0px 1.5rem white;
-  }
-  
-  .overview td {
-    padding: 1rem;
-  }
-  
-  .overview h4{
-    margin: 0.3rem;
-    color: goldenrod;
-  }
-  
-  .mainContainer{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: flex-start;
-    color: white;
-    margin: 2rem;
-    background-color: black;
-    border-radius: 1rem;
-    width: 100%;
-    height: 90%;
-  }
-  .selectorContainer{
-    display: flex;
-  }
-  .imgPelSE{
-    width: 20%;
-    margin: 1rem;
-    border-radius: 0.5rem;
-  }
-  
-  
-  .tituloPeli{
-    margin: 0.5rem;
-    font-size: 2rem;
-    color: goldenrod;
-    text-decoration-line: underline;
-  }
-  
-  #sinapsis{
-    margin: 1rem;
-  }
-  
-  .funcion{
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    width: 20%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 1.5rem;
-  }
-  
-  .funcion:hover {
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    border: 2px solid rgba(255, 255, 255);
-  }
-  .activo{
-    color: goldenrod;
-    border: 2px solid goldenrod;
-    text-shadow: 0px 0px 2rem goldenrod;
-  }
-  
-  .selector{
-    display: flex;
-    justify-content: center;
-    -align-items: flex-start ;
-    align-content: center;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    width: 80%;
-  }
-  #dias, #horarios{
-    display: flex;
-  }
-  #cantEntradas label{
-    margin-left: 2rem;
-    text-decoration: underline;
-  }
-  #cantEntradas input{
-    background-color: rgba(240, 248, 255, 0);
-    color: goldenrod;
-    margin: 1rem;
-    text-align: center;
-    font-size: 1.5rem;
-    font-family: comicNeue;
-    height: 2rem;
-    width: 3rem;
-    border: none;
-    border-bottom: 2px solid white;
-  }
-  .combocarrusel{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 1rem;
-  }
-  
-  .carrusel{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 50%;
-  }
-  .carruselImg{
-    border-radius: 3rem;
-  }
-  .overimg{
-    color: transparent;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    padding:1.3rem;
-    text-align: center;
-    height: 3rem;
-    width: 3rem;
-  }
-  
-  .sig{
-    margin-left: -3.2rem;
-    background-image: url(./recourses/icons8-next-page.gif);
-  }
-  .pre{
-    margin-right: -3.2rem;
-    background-image: url(./recourses/icons8-back-page.gif);
-    position:relative;
-    z-index: 1;
-  }
-  .items{
-    display: flex;
-    margin: auto;
-    justify-content: center;
-  }
-  .items li{
-    margin: auto;
-    margin-top: -3rem;
-    text-align: center;
-  }
-  
-  ::marker{
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 2.5rem;
-  }
-  
-  .focus::marker{
-    color: goldenrod;
-  }
-  .detalles{
+}
+
+.pelicula:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 1.5rem white;
+}
+
+.overview td {
+  padding: 1rem;
+}
+
+.overview h4 {
+  margin: 0.3rem;
+  color: goldenrod;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 2rem;
+  background-color: black;
+  border-radius: 1rem;
+  width: 100%;
+  height: 90%;
+}
+
+.selectorContainer {
+  display: flex;
+}
+
+.imgPelSE {
+  width: 20%;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+.tituloPeli {
+  margin: 0.5rem;
+  font-size: 2rem;
+  color: goldenrod;
+  text-decoration: underline;
+}
+
+#sinapsis {
+  margin: 1rem;
+}
+
+.funcion {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  width: 20%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+}
+
+.funcion:hover {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgba(255, 255, 255);
+}
+
+.activo {
+  color: goldenrod;
+  border: 2px solid goldenrod;
+  text-shadow: 0px 0px 2rem goldenrod;
+}
+
+.selector {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width: 80%;
+}
+
+#dias,
+#horarios {
+  display: flex;
+}
+
+#cantEntradas label {
+  margin-left: 2rem;
+  text-decoration: underline;
+}
+
+#cantEntradas input {
+  background-color: rgba(240, 248, 255, 0);
+  color: goldenrod;
+  margin: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'comicNeue';
+  height: 2rem;
+  width: 3rem;
+  border: none;
+  border-bottom: 2px solid white;
+}
+
+.combocarrusel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.carrusel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+
+.carruselImg {
+  border-radius: 3rem;
+}
+
+.overimg {
+  color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  padding: 1.3rem;
+  text-align: center;
+  height: 3rem;
+  width: 3rem;
+}
+
+.sig {
+  margin-left: -3.2rem;
+  background-image: url(./recourses/icons8-next-page.gif);
+}
+
+.pre {
+  margin-right: -3.2rem;
+  background-image: url(./recourses/icons8-back-page.gif);
+  position: relative;
+  z-index: 1;
+}
+
+.items {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.items li {
+  margin: auto;
+  margin-top: -3rem;
+  text-align: center;
+}
+
+::marker {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 2.5rem;
+}
+
+.focus::marker {
+  color: goldenrod;
+}
+
+.detalles {
   padding-left: 1rem;
   width: 50%;
-  }
-  
-  .hidden{
-    display: none;
-  }
-  
-  .btnComprar{
-    background-color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    color: black;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    margin: 1rem;
-    font-size: 1.5rem;
-  }
-  
-  .btnComprar:hover{
-    background-color: white;
-  }
-  /*contacto*/
-  
-  .contact {
-    padding-bottom: 10px;
-  }
-  
-  .contact .row {
-  
-    margin-top: 10px;
-    width: 100%;
-  }
-  
-  .contact .row form {
-    width: 45%;
-  }
-  
-  .contact .row form .box {
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.6rem;
-    border-bottom: 0.2rem solid #444;
-    width: 100%;
-  }
-  
-  .contact .row form .box:focus {
-    border-color: #2d47ed;
-  }
-  
-  .contact .row form textarea {
-    height: 10rem;
-    resize: none;
-  }
-  
-  .contact .row .contact-info {
-    width: 45%;
-  }
-  
-  .contact .row .contact-info h3 {
-    font-size: 3rem;
-    color: #444;
-    text-transform: capitalize;
-  }
-  
-  .contact .row .contact-info .grapgh {
-    font-size: 1.4rem;
-    color: #666;
-    line-height: 2;
-    padding: 1rem 0;
-  }
-  
-  .contact .row .contact-info .icons {
-    padding: 1rem 0;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  
-  .contact .row .contact-info .icons i {
-    height: 5rem;
-    width: 5rem;
-    line-height: 5rem;
-    border-radius: 50%;
-    font-size: 2rem;
-    background: #111011;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .contact .row .contact-info .icons p {
-    font-size: 1.5rem;
-    color: #666;
-    line-height: 2;
-    padding: 0;
-  }
-  
-  .contact .row .contact-info .share {
-    display: flex;
-    justify-content: center;
-    padding-top: 0.5rem;
-  }
-  
-  .contact .row .contact-info .share a {
-    font-size: 3rem;
-    margin-right: 2rem;
-    color: #666;
-    text-decoration: none;
-  }
-  
-  .contact .row .contact-info .share a:hover {
-    color: #2d47ed;
-  }
-  
-  
-  form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    margin-bottom: 10px;
-  }
-  
-  #textarea{
-    height: 250px;
-  }
-  
-  
-  
-  input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #3e8e41;
-  }
-  .contact-info {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-  }
-  form,
-  .contact-info {
+}
+
+.hidden {
+  display: none;
+}
+
+.btnComprar {
+  background-color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  color: black;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+.btnComprar:hover {
+  background-color: white;
+}
+
+/* Contacto */
+.contact {
+  padding-bottom: 10px;
+}
+
+.contact .row {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.contact .row form {
+  width: 45%;
+}
+
+.contact .row form .box {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  border-bottom: 0.2rem solid #444;
+  width: 100%;
+}
+
+.contact .row form .box:focus {
+  border-color: #2d47ed;
+}
+
+.contact .row form textarea {
+  height: 10rem;
+  resize: none;
+}
+
+.contact .row .contact-info {
+  width: 45%;
+}
+
+.contact .row .contact-info h3 {
+  font-size: 3rem;
+  color: #444;
+  text-transform: capitalize;
+}
+
+.contact .row .contact-info .grapgh {
+  font-size: 1.4rem;
+  color: #666;
+  line-height: 2;
+  padding: 1rem 0;
+}
+
+.contact .row .contact-info .icons {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contact .row .contact-info .icons i {
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  background: #111011;
+  color: #fff;
+  text-align: center;
+}
+
+.contact .row .contact-info .icons p {
+  font-size: 1.5rem;
+  color: #666;
+  line-height: 2;
+  padding: 0;
+}
+
+.contact .row .contact-info .share {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.contact .row .contact-info .share a {
+  font-size: 3rem;
+  margin-right: 2rem;
+  color: #666;
+  text-decoration: none;
+}
+
+.contact .row .contact-info .share a:hover {
+  color: #2d47ed;
+}
+
+form {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  border-radius: 5px;
-  margin: 50px 10px;
-  }
-  
-  form {
   background-color: #f2f2f2;
-  margin: 50px 10px;
-  margin-left: 60px;
-  }
-  
-  label {
+  border-radius: 5px;
+}
+
+label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 3px;
   margin-bottom: 10px;
-  }
-  
-  #textarea {
+}
+
+#textarea {
   height: 250px;
-  }
-  
-  input[type="submit"] {
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.contact-info {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+form,
+.contact-info {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 50px 10px;
+}
+
+form {
+  background-color: #f2f2f2;
+  margin: 50px 10px;
+  margin-left: 60px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+#textarea {
+  height: 250px;
+}
+
+input[type="submit"] {
   background-color: #4CAF50;
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
+}
+
+input[type="submit"]:hover {
   background-color: #3e8e41;
-  }
-  
-  .step {
+}
+
+.step {
   display: none;
-  }
-  
-  .step:first-child {
+}
+
+.step:first-child {
   display: block;
-  }
-  
-  h2 {
+}
+
+h2 {
   font-size: 24px;
   margin: auto;
   text-align: center;
-  }
-  
-  input[type="checkbox"] {
+}
+
+input[type="checkbox"] {
   margin-right: 10px;
-  }
-  
-  button {
+}
+
+button {
   display: inline-block;
   padding: 10px 20px;
   border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #28a745;
-    color: #fff;
-  }
-  
-  
-  #prevBtn {
-    display: none;
-  }
-  
-  #submitBtn {
-    background-color: #28a745;
-    
-  }
-  
-  #submitBtn:hover {
-    background-color: #28a745;
-  }
-  
-  #review-generos li {
-    margin-bottom: 5px;
-  }
-  
-  
-  
-  div.cajaFormu{
-    display: flex;
-    flex-direction: column;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: #fff;
+}
+
+#prevBtn {
+  display: none;
+}
+
+#submitBtn {
+  background-color: #28a745;
+}
+
+#submitBtn:hover {
+  background-color: #28a745;
+}
+
+#review-generos li {
+  margin-bottom: 5px;
+}
+
+.cajaFormu {
+  display: flex;
+  flex-direction: column;
   width: 50%;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    margin: 10px 20%;
-    margin-left: 25%;
-  }
-  
-  
-  #signup-form{
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin: 10px 20%;
+  margin-left: 25%;
+}
+
+#signup-form {
   width: 100%;
   margin: auto;
-  }
-  /*index*/
-  
-  #Index{
-    width: 100%;
-    background: rgb(14, 11, 11); 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;   
-    background-image: url(./recourses/bg-image.jpg);
-    background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-size: cover;
-  }
-  
-  
-  #Index section{  
-    width: 80%;
-    background-color: black;
-    font-size: 25px;
-    text-align: center;
-    border-radius: 10px;
-    color: grey;
-    box-shadow: 0px 0px 1.5rem rgb(255, 255, 255); 
-    padding: 20px; 
-  }
-  
-  .carousel-inner img{
-    width: 400px;
-    height: 400px;
-    padding: 10px 60px;
-  }
-  
-  #tienda{
-    width: 450px;
-    height: 200px;
-    padding: 20px;
-    border: solid grey 2px;
-  }
-  
-  .indexContainer{  
-    display: flex;  
-    flex-direction: column;  
-    align-items: center;
-    padding: 25px; 
-    gap: 30px; 
-    padding-bottom: 25px;
-  }
-  
-  #index a{
-    font-size: 20px;
-  }
-  
-  /*Proximos Estrenos*/
-  .mainEstreno{
-    width: 100%;
-    background: rgb(14, 11, 11); 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-image: url(./recourses/bg-image.jpg);
-  }
-  .estreno {
-    width: 50%;
-    text-align: center;
-  }
-  .peliculaEstreno {
-    width: 50vw;
-    margin: 1rem;
-    display: flex;
-    flex-direction: row;
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0 4px 5px rgba(8, 8, 8, 0.2);
-    /*position: relative;
-    overflow: hidden;*/
-    border-radius: 10px;
-    }
-    
-    
-    .peliculaEstreno img {
-    width: 20vw;
-    }
-    .peliculaEstreno article{
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .peliculaInfoEstreno {
-    color: rgb(240, 227, 227);
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 0.5rem 0.5rem;
-    letter-spacing: 0.5px;
-    }
-    
-    .peliculaInfoEstreno h3 {
-    margin-top: 0;
-    padding-left: 1rem;
-    }
-    
-    .overviewEstreno {
-    background: rgb(0, 0, 0);
-    padding: 0.5rem;
-    font-size: small;
-    color: white;
-    }
-    
-    .overviewEstreno td {
-      padding: 1rem;
-    }
-    
-    .overviewEstreno h4{
-      margin: 0.3rem;
-      color: goldenrod;
-    }
-  
-  /*Nosotros*/
-  #nosotros section{  
-    width: 80%;
-    background-color: black;
-    font-size: 30px;
-    text-align: center;
-    border-radius: 10px;
-    color: grey;
-    box-shadow: 0px 0px 1.5rem rgb(221, 221, 139);
-    padding: 5px; 
-    padding: 100px 50px;
-  }
-  
-  .nosotrosContainer{  
-    display: flex;  
-    flex-direction: column;  
-    align-items: center;
-    padding: 30px; 
-    gap: 30px; 
-    padding-bottom: 25px;
-  }
-  
-  #parrafo {
-    color: rgb(221, 221, 139);
-    font-family: Arial;
-  
-  }
+}
+
+/* Index */
+#Index {
+  width: 100%;
+  background: rgb(14, 11, 11);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-image: url(./recourses/bg-image.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#Index section {
+  width: 80%;
+  background-color: black;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 10px;
+  color: grey;
+  box-shadow: 0px 0px 1.5rem rgb(255, 255, 255);
+  padding: 20px;
+}
+
+.carousel-inner img {
+  width: 400px;
+  height: 400px;
+  padding: 10px 60px;
+}
+
+#tienda {
+  width: 450px;
+  height: 200px;
+  padding: 20px;
+  border: solid grey 2px;
+}
+
+.indexContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  gap: 30px;
+  padding-bottom: 25px;
+}
+
+#index a {
+  font-size: 20px;
+}
+
+/* Próximos Estrenos */
+.mainEstreno {
+  width: 100%;
+  background: rgb(14, 11, 11);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(./recursos/bg-imagen.jpg);
+  overflow: auto;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.estreno {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+.peliculaEstreno {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0 4px 5px rgba(8, 8, 8, 0.2);
+  border-radius: 10px;
+  margin: 0.5rem;
+  min-height: 100vh;
+}
+
+.peliculaEstreno img {
+  max-width: 100%;
+}
+
+.peliculaEstreno article {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  color: rgb(240, 227, 227);
+  background: rgb(0, 0, 0);
+}
+
+.peliculaInfoEstreno h3 {
+  margin-top: 0;
+  padding: 1rem 0;
+  text-align: center;
+  color: goldenrod;
+}
+
+.overviewEstreno {
+  background: rgb(0, 0, 0);
+  padding: 0.5rem;
+  font-size: small;
+  color: white;
+  text-align: center;
+}
+
+.overviewEstreno td {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.overviewEstreno h4 {
+  margin: 0.3rem;
+  color: goldenrod;
+}
+
+/* Nosotros */
+#nosotros section {
+  width: 80%;
+  background-color: black;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 10px;
+  color: grey;
+  box-shadow: 0px 0px 1.5rem rgb(221, 221, 139);
+  padding: 5px;
+  padding: 100px 50px;
+}
+
+.nosotrosContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 30px;
+  padding-bottom: 25px;
+}
+
+#parrafo {
+  color: rgb(221, 221, 139);
+  font-family: Arial;
+}

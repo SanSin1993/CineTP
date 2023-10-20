@@ -1,30 +1,39 @@
-var logo = document.getElementById("logo")
+document.addEventListener("DOMContentLoaded", function() {
+  var logo = document.getElementById("logo");
 
-logo.addEventListener("click", () =>{
-    window.location.href = "./index.html";
-} )
+  if (logo) {
+      logo.addEventListener("click", () => {
+          window.location.href = "./index.html";
+      });
+  }
 
+  var logo = document.getElementById("logo");
+
+logo.addEventListener("click", () => {
+  window.location.href = "./index.html";
+});
 
 $("#botonSacarEntrada").click(function() {
-  let timerInterval
+  let timerInterval;
   Swal.fire({
     title: "¡Disfruta de la magia del cine!",
     timer: 1000,
     timerProgressBar: false,
     didOpen: () => {
-      Swal.showLoading()
-      const b = Swal.getHtmlContainer().querySelector('b')
+      Swal.showLoading();
+      const b = Swal.getHtmlContainer().querySelector('b');
       timerInterval = setInterval(() => {
-        b.textContent = Swal.getTimerLeft()
-      }, 100)
+        b.textContent = Swal.getTimerLeft();
+      }, 100);
     },
     willClose: () => {
-      clearInterval(timerInterval)
-    }
+      clearInterval(timerInterval);
+    },
   }).then((result) => {
     if (result.dismiss === Swal.DismissReason.timer) {
-      console.log('I was closed by the timer')
+      console.log('I was closed by the timer');
       window.location.href = './cartelera.html';
     }
   });
-})
+});
+});
