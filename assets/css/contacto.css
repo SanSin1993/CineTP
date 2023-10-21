@@ -1,0 +1,92 @@
+/* Contacto */
+body{
+    height: 1vh;
+}
+.contact {
+    display: flex;
+    justify-content: space-between; /* Para colocar los formularios uno al lado del otro */
+    padding-bottom: 10px;
+}
+
+.contact .cajaFormu {
+    flex: 1;
+    margin: 0 10px; /* Margen entre los formularios */
+}
+
+.contact form {
+    max-width: 100%;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.contact textarea#textarea {
+    height: 250px;
+}
+
+.contact input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.contact input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+.contact .step {
+    display: none;
+}
+
+.contact .step:first-child {
+    display: block;
+}
+
+.contact h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.contact input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.contact button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: #fff;
+}
+
+.contact #prevBtn {
+    display: none;
+}
+
+.contact #submitBtn {
+    background-color: #28a745;
+}
+
+.contact #submitBtn:hover {
+    background-color: #28a745;
+}
+
+.contact #review-generos li {
+    margin-bottom: 5px;
+}

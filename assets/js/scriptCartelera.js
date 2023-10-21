@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", function() {
+  var logo = document.querySelector(".imgLogo");
+  if (logo) {
+      logo.addEventListener("click", () => {
+          window.location.href = "../index.html";
+      });
+  }
+
+
 // Obtener el elemento del logotipo y agregar un evento de clic para redirigir a la página de inicio.
 var logo = document.getElementById("logo");
 logo.addEventListener("click", () => {
@@ -22,7 +31,11 @@ const selectedCarteleraMovieIDs = [
   678512,
   1151534,
   1008042,
-  961268
+  565770,
+  346698, 
+  466420, 
+  1032948, 
+  1008042
 ];
 
 // Cargar las películas seleccionadas en la cartelera
@@ -87,3 +100,7 @@ function createMovieElement(movie, category) {
     window.location.href = `./sacarEntrada.html?id=${movie.id}`;
   });
 }
+
+  
+});
+

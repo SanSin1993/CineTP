@@ -1,8 +1,10 @@
-// Obtener el elemento del logo y agregar un evento de clic que redirige a la página de inicio
-var logo = document.getElementById("logo");
-logo.addEventListener("click", () => {
-    window.location.href = "../index.html";
-});
+document.addEventListener("DOMContentLoaded", function() {
+    var logo = document.querySelector(".imgLogo");
+    if (logo) {
+        logo.addEventListener("click", () => {
+            window.location.href = "../index.html";
+        });
+    }
 
 // Obtener los parámetros de la URL y encontrar la película seleccionada
 let parametros = location.search;
@@ -227,3 +229,8 @@ Gracias por su compra. ¡Lo esperamos!`
     x.document.write(iframe);
     x.document.close();
 }
+
+
+    
+});
+

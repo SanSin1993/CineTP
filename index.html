@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine TP - Bienvenidos al cine</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -18,13 +19,7 @@
         <nav>
             <ul class="navMenu">
                 <li>
-                    <a href="./index.html">Inicio</a>
-                </li>
-                <li>
                     <a href="./pages/cartelera.html">Cartelera</a>
-                </li>
-                <li>
-                    <a href="./pages/proximosEstrenos.html">Proximos Estrenos</a>
                 </li>
                 <li>
                     <a href="./pages/nosotros.html">Nosotros</a>
@@ -39,45 +34,37 @@
         <div class="indexContainer">
             <section>
                 <h1>¡Bienvenidos al Cine TP!</h1>
-                <p>Nos dedicamos a ofrecer la mejor experiencia cinematográfica a nuestros espectadores. Contamos con salas de cine equipadas con la última tecnología en imagen y sonido, para que disfrutes de las películas como nunca antes.</p>
             </section>
             <section>
-                <h2>Nuestras Salas</h2>
+                <h2>Estrenos</h2>
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="./assets/media/images/sala 1.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/media/images/sala 2.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/media/images/sala 3.jpg" class="d-block w-100" alt="...">
-                        </div>
+                      <div id="estrenos" class="carousel-item active">
+                      </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
                     </button>
-                </div>
-                <p>Contamos con varias salas, cada una con capacidades diferentes para adaptarse a las necesidades de nuestros espectadores. ¡Seguro que encontrarás la sala perfecta para ti!</p>
+                  </div>
             </section>
+            
             <section>
-                <h2>Horarios y entradas</h2>
-                <p>En nuestra página web podrás encontrar toda la información sobre nuestros horarios de proyección y comprar tus entradas en línea para asegurarte de conseguir los mejores asientos en la sala. ¡No te pierdas nuestras promociones especiales!</p>
-                <button type="button" class="btn btn-primary" id="botonSacarEntrada">SACA TU ENTRADA</button>
+                <button type="button" class="btn btn-primary" id="botonSacarEntrada">CARTELERA</button>
             </section>
             <section class="espacio">
-                <h2>Cafetería y tienda</h2>
-                <img src="./assets/media/images/tienda.jpg" alt="" id="tienda">
-                <p>Antes o después de la película, podrás visitar nuestra cafetería y tienda para disfrutar de una amplia variedad de snacks y bebidas.</p>
+                <h4>Próximos Estrenos</h4>
+                <div id="proximosEstrenos" class="peliculaEstreno-container">
+                    <!-- Las películas se agregarán dinámicamente aquí desde el archivo JavaScript -->
+                </div>
             </section>
         </div>
     </main>
+    
     <footer>
         <div class="footerFirma">
             <img class="footerLogo" src="./assets/media/images/logopopnegro.jpg" alt="logopopnegro">
@@ -104,7 +91,7 @@
                 <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJfttkxnchRMHqCNkPSrLRtlHVCTxpSMTSmBkgqnLtVcffvqPJZpdkKWtjbxJvfWBlQhSNB" target="_blank"><img class="footerImg" src="./assets/media/icons/icons8-gmail-logo-48.png" alt="Gmail"></a>
             </div>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54474.71858602342!2d-64.2160244480742!3d-31.42321939581387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a20d7ef828ad%3A0x2505f42f3fa8446f!2sAv.%20Fuerza%20Aerea%20Argentina%202520%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1681338318748!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54474.71858602342!2d-64.2160244480742!3d-31.42321939581387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a20d7ef828ad%3A0x2505f42f3fa8446f!2sAv.%20Fuerza%20Aerea%20Argentina%2520%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1681338318748!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
     </footer>
     <script src="./assets/js/scriptIndex.js"></script>
 </body>
