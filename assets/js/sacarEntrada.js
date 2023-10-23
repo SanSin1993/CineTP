@@ -1,236 +1,212 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var logo = document.querySelector(".imgLogo");
+document.addEventListener("DOMContentLoaded", async function() {
+    
+    var logo = document.querySelector(".logo");
+  
     if (logo) {
         logo.addEventListener("click", () => {
             window.location.href = "../index.html";
         });
     }
 
-// Obtener los parámetros de la URL y encontrar la película seleccionada
-let parametros = location.search;
-parametros = parametros.substring(1, parametros.length);
-const params = new URLSearchParams(parametros);
-const peliculas = localStorage.getItem('peliculas');
-const pelicula = JSON.parse(peliculas).find(element => element.id == params.get('id'));
 
-// Obtener elementos del DOM
-const main = document.querySelector('.mainContainer');
-const imagenPelicula = document.getElementById("imgPelicula");
-const TitPelicula = document.getElementById("tituloPeli");
-const sinapsis = document.getElementById("sinapsis");
-const cmb = document.getElementById('combos');
-const hs = document.getElementById("horarios");
-const ds = document.getElementById("dias");
-const btnComprar = document.getElementById("btnComprar");
 
-// Definir la ruta base para las imágenes de las películas
-const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
+    const btnComprar = document.getElementById("btnComprar");
+    const main = document.querySelector('.mainContainer');
+    
+    // Obtener la URL actual
+    const url = window.location.href;
+    
+    // Crear un objeto URL para analizar la URL
+    const urlObj = new URL(url);
+    
+    // Obtener el valor del parámetro "id"
+    const movieID = urlObj.searchParams.get("id");
+    
+    // Comprobar si se ha encontrado el parámetro "id"
+    if (!movieID) {
+        console.log("El parámetro 'id' no se encontró en la URL.");
+        return;  // Termina la función si no se encuentra el parámetro 'id'
+    }
 
-// Establecer la imagen de la película y otros detalles
-imagenPelicula.setAttribute('src', IMG_PATH + pelicula.poster_path);
-imagenPelicula.setAttribute('alt', pelicula.title);
-TitPelicula.innerText = pelicula.title;
-sinapsis.innerText = pelicula.overview;
+    const apiKey = '7f194cf23e4e2305fe113aa39e25592f';
 
-// Definir los días disponibles y sus eventos de clic
-const dias = ["Lunes", "Miércoles", "Viernes", "Domingo"];
-for (let i = 0; i < dias.length; i++) {
-    let dia = document.createElement('div');
-    dia.classList.add('funcion');
-    dia.classList.add('dia');
-    dia.innerHTML = dias[i];
-
-    dia.addEventListener("click", () => {
-        let diaActivo = ds.getElementsByClassName('dia activo');
-        for (let i = 0; i < diaActivo.length; i++) {
-            diaActivo.item(i).classList.remove('activo');
+    // Obtener datos de la película desde la API
+    async function getMovieDetails(movieID) {
+        const apiUrl = `https://api.themoviedb.org/3/movie/${movieID}`;
+        
+        try {
+            const response = await fetch(`${apiUrl}?api_key=${apiKey}&language=es-ES`);
+            
+            if (response.ok) {
+                const movieData = await response.json();
+                return movieData;
+            } else {
+                console.error('Error al obtener datos de la película', movieID);
+                return null;
+            }
+        } catch (error) {
+            console.error('Error en la solicitud:', error);
+            return null;
         }
-        dia.classList.add('activo');
+    }
+
+    // Llamada a la función para obtener datos de la película
+    const movie = await getMovieDetails(movieID);
+
+    if (!movie) {
+        console.log("Error al obtener datos de la película.");
+        return;
+    }
+
+    // Elementos de la película
+    const { title, poster_path, overview } = movie;
+    const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
+
+    // Actualizar elementos en la página
+    const imagenPelicula = document.getElementById("imgPelicula");
+    const TitPelicula = document.getElementById("tituloPeli");
+    const sinapsis = document.getElementById("sinapsis");
+
+    imagenPelicula.src = IMG_PATH + poster_path;
+    imagenPelicula.alt = title;
+    TitPelicula.innerText = title;
+    sinapsis.innerText = overview;
+
+    const ds = document.getElementById("dias");
+    const hs = document.getElementById("horarios");
+
+
+
+// Selecciona el elemento h4 donde mostrar el precio de entrada
+const precioEntrada = document.querySelector('#precioEntrada');
+
+// Selecciona el input de cantidad de entradas
+const cantEntradasInput = document.getElementById("cantEntradas");
+
+// Agregar un evento de escucha para el input
+cantEntradasInput.addEventListener("input", function() {
+    const cantidadEntradas = parseInt(cantEntradasInput.value, 10);
+
+    // Establece el precio base
+    const precioBase = 3000;
+
+    if (!isNaN(cantidadEntradas) && cantidadEntradas >= 1) {
+        const precioTotal = cantidadEntradas * precioBase;
+        precioEntrada.innerText = `Valor de la entrada: $${precioTotal}`;
+    } else {
+        // Restablece el texto cuando no es un número válido
+        precioEntrada.innerText = 'Valor de la entrada $3000';
+    }
+});
+
+    
+
+
+
+
+
+
+
+
+
+
+
+// Calcular las fechas de los próximos 7 días de la semana (excluyendo el día actual)
+function generateDatesExcludingToday() {
+    const today = new Date();
+    const nextSevenDays = [];
+
+    for (let i = 1; i <= 7; i++) { // Comenzar desde 1 para excluir el día actual
+        const date = new Date(today);
+        date.setDate(today.getDate() + i);
+        nextSevenDays.push(date);
+    }
+
+    return nextSevenDays;
+}
+
+// Generar días de la semana sin contar el día actual
+const dates = generateDatesExcludingToday();
+
+for (const date of dates) {
+    const dayOfWeek = generateDayOfWeek(date);
+    const formattedDate = formatDate(date);
+
+    const diaElement = document.createElement('div');
+    diaElement.classList.add('funcion');
+    diaElement.classList.add('dia');
+    diaElement.innerText = `${dayOfWeek} ${formattedDate}`;
+
+    diaElement.addEventListener("click", () => {
+        const diaActivo = ds.querySelector('.dia.activo');
+        if (diaActivo) {
+            diaActivo.classList.remove('activo');
+        }
+
+        diaElement.classList.add('activo');
         hs.innerHTML = '';
-        cmb.innerHTML = '';
-        btnComprar.classList.add('hidden');
         cargarHorarios();
     });
 
-    ds.appendChild(dia);
+    ds.appendChild(diaElement);
+}
+function generateDayOfWeek(date) {
+    const daysOfWeek = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    return daysOfWeek[date.getDay()];
 }
 
-// Función para cargar los horarios
-function cargarHorarios() {
-    const horarios = ["00:00", "05:00", "08:00", "10:00"];
-    for (let i = 0; i < horarios.length; i++) {
-        let hora = document.createElement('div');
-        hora.classList.add('funcion');
-        hora.classList.add('horario');
-        hora.innerHTML = horarios[i];
-
-        hora.addEventListener("click", () => {
-            let horaActiva = hs.getElementsByClassName('horario activo');
-            for (let i = 0; i < horaActiva.length; i++) {
-                horaActiva.item(i).classList.remove('activo');
-            }
-            hora.classList.add('activo');
-            cmb.innerHTML = '';
-            cargarcombos();
-        });
-
-        hs.appendChild(hora);
-    }
-}
-
-// Función para cargar los combos de películas
-function cargarcombos() {
-    const combos = [["Combo Película: Black Panther 2", "1 Balde de Pochoclo + 1 Vaso con tapa + 2 Gaseosas", "$ 3100", "combo5.jpg"], ["Combo Premium", "1 Lata Rectangular con pochoclos + 2 Gaseosas", "$ 4200", "combo4.jpg"], ["Combo Película: Shazam 2", "1 Balde de Pochoclo + 1 Vaso con tapa + 2 Gaseosas", "$ 3100", "combo3.jpg"], ["Combo Lata: Shazam 2", "1 Lata de Colección con pochoclo + 2 Gaseosas", "$ 4100", "combo2.jpg"], ["Combo Mundial", "1 Vaso de Argentina +1 pochoclo mediano +1 Gaseosa", "$ 2100", "combo6.jpg"]];
-    cmb.innerHTML = '';
-    btnComprar.classList.remove('hidden');
-    let carrusel = document.createElement('div');
-    carrusel.classList.add('carrusel');
-    cmb.appendChild(carrusel);
-
-    let div3 = document.createElement('div');
-    div3.classList.add('detalles');
-    div3.id = "detalles";
-    cmb.appendChild(div3);
-    div3.innerHTML = '<h4 id="detCombo">Sin Combo</h4><p id="detParrafo"></p><p id="detPrecio">$ 0</p>';
-
-    let span = document.createElement('span');
-    span.classList.add('overimg');
-    span.classList.add('pre');
-    span.addEventListener("click", () => {
-        cambioCombo('a');
-    });
-    carrusel.appendChild(span);
-    span.innerText = '';
-
-    let div2 = document.createElement('div');
-    carrusel.appendChild(div2);
-    carrImg = document.createElement('img');
-    carrImg.id = "detImg";
-    carrImg.classList.add('carruselImg');
-    carrImg.src = "../recourses/comboVoid.jpg";
-    div2.appendChild(carrImg);
-
-    let comboFocus = document.createElement('ul');
-    comboFocus.classList.add('items');
-    comboFocus.id = "selectInf";
-    comboFocus.innerHTML = '<li id="li-0" class="focus"></li>';
-    div2.appendChild(comboFocus);
-
-    span = document.createElement('span');
-    span.classList.add('overimg');
-    span.classList.add('sig');
-    span.addEventListener("click", () => {
-        cambioCombo('s');
-    });
-    carrusel.appendChild(span);
-    span.innerText = '';
-
-    inferior = document.getElementById('selectInf');
-    for (let i = 0; i < combos.length; i++) {
-        let li = document.createElement('li');
-        li.id = `li-${i + 1}`;
-        inferior.appendChild(li);
-    }
-}
-
-// Función para cambiar entre diferentes combos
-function cambioCombo(paso) {
-    const tamanio = combos.length;
-    let liFocus = document.getElementsByClassName('focus');
-    let liId = liFocus.item(0).id;
-    liId = liId.split('-', 2);
-    const liNumber = Number(liId[1]);
-    const liMoment = document.getElementById(`li-${liNumber}`);
-    liMoment.classList.remove('focus');
-    let next;
-    if (paso == 'a') {
-        if (liNumber == 0) {
-            next = tamanio;
-        } else {
-            next = liNumber - 1;
-        }
-    }
-
-    if (paso == 's') {
-        if (liNumber == tamanio) {
-            next = 0;
-        } else {
-            next = liNumber + 1;
-        }
-    }
-
-    const liNext = `li-${next}`;
-    const lifind = document.getElementById(liNext);
-    lifind.classList.add('focus');
-
-    if (next != 0) {
-        const comboNext = next - 1;
-        let detCombo = document.getElementById("detCombo");
-        let detParrafo = document.getElementById("detParrafo");
-        let detPrecio = document.getElementById("detPrecio");
-        let detImg = document.getElementById("detImg");
-        detCombo.innerText = combos[comboNext][0];
-        detParrafo.innerText = combos[comboNext][1];
-        detPrecio.innerText = combos[comboNext][2];
-        detImg.src = `../recourses/${combos[comboNext][3]}`;
-    }
-
-    if (next == 0) {
-        let detCombo = document.getElementById("detCombo");
-        let detParrafo = document.getElementById("detParrafo");
-        let detPrecio = document.getElementById("detPrecio");
-        let detImg = document.getElementById("detImg");
-        detCombo.innerText = "Sin Combo";
-        detParrafo.innerText = "";
-        detPrecio.innerText = "$ 0";
-        detImg.src = `../recourses/comboVoid.jpg`;
-    }
-
-    btnComprar.addEventListener('click', () => {
-        pdfCompra();
-    });
-}
-
-// Función para generar un PDF con los detalles de la compra
-function pdfCompra() {
-    let dia;
-    let diaActivo = ds.getElementsByClassName('dia activo');
-    for (let i = 0; i < diaActivo.length; i++) {
-        dia = diaActivo.item(i).innerText;
-    }
-    let película = TitPelicula.innerText;
-    let horario;
-    let horaActiva = hs.getElementsByClassName('horario activo');
-    for (let i = 0; i < horaActiva.length; i++) {
-        horario = horaActiva.item(i).innerText;
-    }
-    let tituloCombo = document.getElementById("detCombo").innerText;
-    let detCombo = document.getElementById("detParrafo").innerText;
-    let cantEntradas = document.getElementById("cantEntradas").innerText;
-
-    let doc = new jsPDF();
-    doc.text(`Cine Grupo 7
-
-Compra realizada para la función de ${película} en el ${dia} 
-en hora ${horario}.
-
-Detalle de elementos: 
-- Entradas: ${cantEntradas}
-- Combo: ${tituloCombo}
-                    - ${detCombo}
-
-Gracias por su compra. ¡Lo esperamos!`
-        , 10, 10);
-
-    let pdfContent = doc.output('datauristring');
-    var iframe = "<iframe width='100%' height='100%' src='" + pdfContent + "'></iframe>"
-    var x = window.open();
-    x.document.open();
-    x.document.write(iframe);
-    x.document.close();
+function formatDate(date) {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    return `${day}/${month}`;
 }
 
 
     
-});
+    function cargarHorarios() {
+        const horarios = ["12:00Hs", "15:00Hs", "18:00Hs"];
+        for (const horario of horarios) {
+            const horaElement = document.createElement('div');
+            horaElement.classList.add('funcion');
+            horaElement.classList.add('horario');
+            horaElement.innerText = horario;
 
+            horaElement.addEventListener("click", () => {
+                const horaActiva = hs.querySelector('.horario.activo');
+                if (horaActiva) {
+                    horaActiva.classList.remove('activo');
+                }
+
+                horaElement.classList.add('activo');
+            });
+
+            hs.appendChild(horaElement);
+        }
+    }
+
+    btnComprar.addEventListener('click', () => pdfCompra());
+
+    function pdfCompra() {
+        const diaActivo = ds.querySelector('.dia.activo');
+        const dia = diaActivo ? diaActivo.innerText : "Día no seleccionado";
+
+        const horaActiva = hs.querySelector('.horario.activo');
+        const horario = horaActiva ? horaActiva.innerText : "Horario no seleccionado";
+
+        const doc = new jsPDF();
+        doc.text(`Cine TP
+
+        Compra realizada para la función de ${title} en el ${dia} 
+        en hora ${horario}.
+
+        Gracias por su compra. ¡Lo esperamos!`
+            , 10, 10);
+
+        const pdfContent = doc.output('datauristring');
+        const iframe = `<iframe width='100%' height='100%' src='${pdfContent}'></iframe>`;
+        const newWindow = window.open();
+        newWindow.document.open();
+        newWindow.document.write(iframe);
+        newWindow.document.close();
+    }
+});
