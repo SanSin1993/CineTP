@@ -35,28 +35,44 @@ const baseUrl = 'https://api.themoviedb.org/3/discover/movie';
 const main = document.querySelector('.main');
 const startPage = 1;
 const endPage = 10;
+// Obtener la fecha actual en formato ISO (AAAA-MM-DD)
+const currentDate = new Date().toISOString().split('T')[0];
+
+// Inicializar la lista de datos filtrados
 const filteredMovieData = [];
+const maxElements = 12 // Límite de elementos
 
-
+// Función para obtener datos de películas
 async function fetchDataForPages() {
-  for (let page = startPage; page <= endPage; page++) {
-    const url = `${baseUrl}?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&page=${page}`;
+  let page = 1;
+  let totalElementsAdded = 0; // Rastrear la cantidad de elementos agregados
 
+  while (page <= 10 && totalElementsAdded < maxElements) {
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie?page=${page}&api_key=${apiKey}&language=es-ES`;
+    
     try {
-      const response = await fetch(url);
-      if (response.status === 200) {
-        const data = await response.json();
+      const response = await fetch(apiUrl);
 
+      if (response.ok) {
+        const data = await response.json();
         // Filtrar los elementos
         const filteredData = data.results.filter(movie => (
           movie.original_language === "en" &&
-          movie.release_date > "2023-09-01" &&
-          movie.release_date < "2023-10-22" &&
+          movie.release_date <= currentDate && // Comparar con la fecha actual
           movie.vote_average > 7
         ));
 
-        // Agregar los elementos filtrados a la lista
-        filteredMovieData.push(...filteredData);
+        if (filteredData.length > 0) {
+          // Calcular cuántos elementos se pueden agregar sin exceder el límite
+          const elementsToAdd = Math.min(filteredData.length, maxElements - totalElementsAdded);
+          const moviesToAdd = filteredData.slice(0, elementsToAdd);
+
+          // Agregar los elementos filtrados a la lista
+          filteredMovieData.push(...moviesToAdd);
+          totalElementsAdded += elementsToAdd; // Actualizar la cantidad de elementos agregados
+        }
+
+        page++;
       } else {
         console.error(`Error fetching data for page ${page}: ${response.status}`);
       }
