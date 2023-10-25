@@ -113,6 +113,3 @@ document.addEventListener("DOMContentLoaded", function() {
   // Mostrar el primer paso al cargar la página
   showStep(0);
 });
-
-
-

@@ -1,3 +1,5 @@
+//FORMATO CLAVE:VALOR API THEMOVIEDB
+
 //PeliculaResponse {
 //  page;  //number;
 //  results;  //pelicula
@@ -30,17 +32,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 }
 
-  const apiKey = '7f194cf23e4e2305fe113aa39e25592f';
+const apiKey = '7f194cf23e4e2305fe113aa39e25592f';
 const baseUrl = 'https://api.themoviedb.org/3/discover/movie';
-const main = document.querySelector('.main');
+const filteredMovieData = [];
+const mainCartelera = document.querySelector('#mainCartelera');
 const startPage = 1;
 const endPage = 10;
 // Obtener la fecha actual en formato ISO (AAAA-MM-DD)
 const currentDate = new Date().toISOString().split('T')[0];
 
 // Inicializar la lista de datos filtrados
-const filteredMovieData = [];
-const maxElements = 12 // Límite de elementos
+
+const maxElements = 8 // Límite de elementos
 
 // Función para obtener datos de películas
 async function fetchDataForPages() {
@@ -59,6 +62,7 @@ async function fetchDataForPages() {
         const filteredData = data.results.filter(movie => (
           movie.original_language === "en" &&
           movie.release_date <= currentDate && // Comparar con la fecha actual
+          movie.release_date <= '2023-09-01' &&
           movie.vote_average > 7
         ));
 
@@ -134,7 +138,7 @@ function createMovieElement(movie, category) {
     </div>
   `;
 
-  main.appendChild(peliculaElegida);
+  mainCartelera.appendChild(peliculaElegida);
 
   // Agregar un evento click a la película para redirigir a "sacarEntrada.html"
   peliculaElegida.addEventListener("click", function () {
@@ -142,7 +146,7 @@ function createMovieElement(movie, category) {
     let timerInterval;
     Swal.fire({
       title: "¡Disfruta de la magia del cine!",
-      timer: 3000,
+      timer: 2000,
       timerProgressBar: false,
       didOpen: () => {
         Swal.showLoading();
@@ -166,11 +170,8 @@ function createMovieElement(movie, category) {
 // Llama a la función para cargar películas
 loadMovies();
 
-// Convertir filteredMovieData en una cadena JSON
-const filteredMovieDataJSON = JSON.stringify(filteredMovieData);
 
-// Almacenar la cadena JSON en localStorage
-localStorage.setItem('filteredMovieData', filteredMovieDataJSON);
+
 
 
 
