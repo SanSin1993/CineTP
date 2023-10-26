@@ -29,12 +29,6 @@ body{
     padding: 10px 60px;
   }
   
-  #tienda {
-    width: 450px;
-    height: 200px;
-    padding: 20px;
-    border: solid grey 2px;
-  }
   
   .indexContainer {
     display: flex;

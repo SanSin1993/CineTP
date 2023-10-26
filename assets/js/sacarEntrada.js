@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         const diaElement = document.createElement('div');
         diaElement.classList.add('funcion');
         diaElement.classList.add('dia');
-        diaElement.innerText = `${dayOfWeek} ${formattedDate}`;
+        diaElement.innerHTML = `${dayOfWeek} <br> ${formattedDate}`;
 
         diaElement.addEventListener("click", () => {
             const diaActivo = ds.querySelector('.dia.activo');
