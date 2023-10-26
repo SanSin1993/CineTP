@@ -1,0 +1,47 @@
+/* Importa la paleta de colores desde style.css */
+@import url("style.css");
+
+/* Utiliza las variables CSS personalizadas para definir los colores en entrada.css */
+#mainEntrada {
+    background-image: url('/assets/media/images/backgrund.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.tituloPeli {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+    color: var(--text-color); /* Utiliza la variable de color para el texto */
+}
+
+#sinapsis {
+    text-align: center;
+    margin: 10px 0;
+    color: var(--text-color); /* Utiliza la variable de color para el texto */
+}
+
+
+.dia {
+    cursor: pointer;
+    background-color: var(--primary-color); /* Utiliza la variable de color primario */
+    color: var(--text-color); /* Utiliza la variable de color para el texto */
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.dia.activo {
+    background-color: var(--primary-color);
+    color: var(--text-color); /* Utiliza la variable de color para el texto */
+}

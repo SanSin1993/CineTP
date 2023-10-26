@@ -1,93 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url("contacto.css");
 @import url("nosotros.css");
 @import url("index.css");
 @import url("cartelera.css");
+@import url("Entrada.css");
 
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-  }
-  
-  /*encabezado*/
-  
-  header{
-    height: 5rem;
-    background-color: black;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: space-between;
-    font-family: autodex;
-    border: solid 2px rgba(255, 255, 255, 0.5);
-  }
-  margin-top
-  header h1{
-    color: white;
-   
-  }
-  
-  header div {
-    text-align: center;
-  }
-  
-  .logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-  }
-  .logo h1{
-    color: rgb(255, 255, 255, 0.5);
-    font-size: 3rem;
-    margin: auto;
-  }
-  .logo h1:hover{
-    color: white;
-  }
-  .logo:hover{
-    cursor: pointer;
-  }
-  
-  .navMenu{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    list-style-type: none;
-    width: 50vw;
-    margin-top: 1rem!important;
-  }
-  .navMenu li a{
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    font-size: 1.5rem;
-  
-  }
-  
-  .navMenu li a:hover{
-    color: white;
-  }
-  
-  .imgLogo{
-    height: 4rem;
-    width: 3rem;
-  }
-    /* Pie de página */
-footer {
-  background-color: rgb(0, 0, 0);
-  color: rgba(255, 255, 255, 0.5);
+/*paleta de colores */
+:root {
+  --primary-color: #35477d;
+  --secondary-color: #19003a;
+  --text-color: #050404;
+  --background-color: #f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+
+.body1hv {
+  height: 1vh;
+}
+
+.body2hv {
+  height: 1vh;
+}
+
+
+section {
+  width: 70%;
+  background-color: var(--primary-color);
+  font-size: 25px;
+  text-align: center;
+  border-radius: 10px;
+  color: var(--text-color);
+  box-shadow: 0px 0px 1.5rem var(--primary-color);
+  padding: 20px;
+}
+
+/* Encabezado */
+
+header {
+  height: 5rem;
+  background-color: var(--primary-color);
   display: flex;
-  flex-direction: row;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  border: 2px solid var(--secondary-color);
+}
+
+header h1 {
+  color: white;
+}
+
+header div {
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.logo h1 {
+  color: var(--secondary-color);
+  font-size: 3rem;
+  margin: auto;
+}
+
+.logo h1:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.navMenu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  list-style-type: none;
+  width: 50vw;
+  margin-top: 1rem;
+}
+
+.navMenu li a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navMenu li a:hover {
+  color: white;
+}
+
+.imgLogo {
+  height: 4rem;
+  width: 4rem;
+}
+
+/* Pie de página */
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  display: flex;
   justify-content: space-evenly;
   padding: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid var(--secondary-color);
 }
 
 .socialMediaList {
@@ -98,11 +131,11 @@ footer {
   padding: 0;
 }
 
-#socialMediaList li {
+.socialMediaList li {
   list-style-type: none;
 }
 
-#socialMediaList li a img {
+.socialMediaList li a img {
   margin: auto;
 }
 
@@ -113,16 +146,15 @@ footer {
 
 .footerLogo {
   height: 3rem;
-  width: 2rem;
+  width: 3rem;
   margin-bottom: 1rem;
 }
 
 .footerFirma {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  font-family: 'autodex';
   margin-bottom: -0.8rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .disclaimer p {
@@ -138,3 +170,4 @@ footer {
 .socialMediaItem {
   margin: auto;
 }
+
