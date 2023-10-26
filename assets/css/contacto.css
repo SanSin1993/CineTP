@@ -1,7 +1,5 @@
 /* Contacto */
-body{
-    height: 1vh;
-}
+
 .contact {
     display: flex;
     justify-content: space-between; /* Para colocar los formularios uno al lado del otro */
@@ -16,8 +14,9 @@ body{
 .contact form {
     max-width: 100%;
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: black;
     border-radius: 5px;
+    color: whitesmoke;
 }
 
 .contact input[type="text"],
@@ -35,8 +34,7 @@ body{
 }
 
 .contact input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--background-color);
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
@@ -44,7 +42,7 @@ body{
 }
 
 .contact input[type="submit"]:hover {
-    background-color: #3e8e41;
+    background-color: var(--background-color);
 }
 
 .contact .step {
@@ -71,8 +69,7 @@ body{
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #28a745;
-    color: #fff;
+    background-color: var(--background-color);
 }
 
 .contact #prevBtn {
@@ -80,11 +77,11 @@ body{
 }
 
 .contact #submitBtn {
-    background-color: #28a745;
+    background-color: var(--background-color);
 }
 
 .contact #submitBtn:hover {
-    background-color: #28a745;
+    background-color: var(--background-color);
 }
 
 .contact #review-generos li {

@@ -1,69 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Resto de tus importaciones de CSS */
 @import url("contacto.css");
 @import url("nosotros.css");
 @import url("index.css");
 @import url("cartelera.css");
 @import url("Entrada.css");
 
-/*paleta de colores */
+/* Paleta de colores */
 :root {
-  --primary-color: #35477d;
-  --secondary-color: #19003a;
-  --text-color: #050404;
-  --background-color: #f5f5f5;
+  --primary-color: #1c2747;
+  --secondary-color: #151515;
+  --background-color: #6b8eaa;
+  --text-color-secundary: #FFFFFF; /* Define el color de texto secundario */
 }
 
 * {
   box-sizing: border-box;
-}
-
-body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
   font-size: 16px;
-  background-color: var(--background-color);
-  color: var(--text-color);
 }
 
-
-
-.body1hv {
-  height: 1vh;
+body {
+  width: 100vw;
 }
 
-.body2hv {
-  height: 1vh;
+.body1vh {
+  height: 100vh;
 }
 
+.body2vh {
+  height: 200vh;
+}
 
 section {
-  width: 70%;
-  background-color: var(--primary-color);
-  font-size: 25px;
+  width: 100%;
+  background-color: var(--background-color);
   text-align: center;
   border-radius: 10px;
-  color: var(--text-color);
   box-shadow: 0px 0px 1.5rem var(--primary-color);
   padding: 20px;
 }
 
 /* Encabezado */
-
 header {
   height: 5rem;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   align-content: space-between;
-  font-family: 'Montserrat', sans-serif;
-  border: 2px solid var(--secondary-color);
-}
-
-header h1 {
-  color: white;
 }
 
 header div {
@@ -75,16 +64,17 @@ header div {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .logo h1 {
-  color: var(--secondary-color);
+  color: whitesmoke;
   font-size: 3rem;
   margin: auto;
 }
 
 .logo h1:hover {
-  color: white;
+  color: var(--background-color);
   cursor: pointer;
 }
 
@@ -98,13 +88,14 @@ header div {
 }
 
 .navMenu li a {
-  color: var(--secondary-color);
+  color: var(--text-color-secundary); /* Utiliza la variable de color de texto secundario */
   text-decoration: none;
   font-size: 1.5rem;
+  color: whitesmoke;
 }
 
 .navMenu li a:hover {
-  color: white;
+  color: var(--background-color);
 }
 
 .imgLogo {
@@ -113,10 +104,9 @@ header div {
 }
 
 /* Pie de página */
-
 footer {
-  background-color: var(--primary-color);
-  color: var(--text-color);
+  background-color: var(--secondary-color);
+  color: var(--secondary-color);
   display: flex;
   justify-content: space-evenly;
   padding: 1rem;
@@ -127,8 +117,6 @@ footer {
   list-style-type: none;
   display: flex;
   flex-direction: row;
-  margin: 0;
-  padding: 0;
 }
 
 .socialMediaList li {
@@ -137,6 +125,10 @@ footer {
 
 .socialMediaList li a img {
   margin: auto;
+}
+
+footer p {
+  color: whitesmoke;
 }
 
 .footerImg {
@@ -153,6 +145,7 @@ footer {
 .footerFirma {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: -0.8rem;
   font-family: 'Montserrat', sans-serif;
 }
@@ -171,3 +164,13 @@ footer {
   margin: auto;
 }
 
+/* Media Query para smartphones */
+@media (max-width: 480px) {
+  body {
+    width: 100%;
+    height: auto;
+    * {
+      transform: scale(0.7);
+    }
+  }
+}

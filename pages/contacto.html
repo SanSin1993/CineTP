@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
+<body class="body1hv">
     <header>
         <div class="logo">
             <img class="imgLogo" src="../assets/media/images/logopopnegro.jpg" alt="logopopnegro">
@@ -30,52 +30,57 @@
         </nav>
     </header>
     <main class="main"  id="mainContacto"  style="background-image: url(/assets/media/images/backgrund.jpg);">
-        <div class="contact" id="contact">
-            <div class="cajaFormu">
-                <h1 style="color: lightgrey;">Envianos tus consultas y sugerencias</h1>
-                <form>
-                    <input type="text" placeholder="Nombre y Apellido:" class="box" name="Nombre" required>
-                    <input type="email" placeholder="Email:" class="box" name="Email" required>
-                    <input type="text" placeholder="Telefono:" class="box" name="Telefono">
-                    <textarea class="box" placeholder="Mensaje:" id="textarea" cols="30" rows="10" name="Consulta" required></textarea>
-                    <input type="submit" value="Enviar" class="btn" id="submitConsultas">
-                </form>
-            </div>
-            <div class="cajaFormu">
-                <h2 style="color: lightgrey;">¡Recibe en tu bandeja de entrada las últimas novedades del mundo del cine suscribiéndote a nuestro boletín!</h2>
-                <form id="signup-form" method="POST">
-                    <div class="step">
-                        <h2>Paso 1: Información personal</h2>
-                        <label for="name">Nombre completo:</label>
-                        <input type="text" id="name" name="name" required>
-                        <label for="email">Correo electrónico:</label>
-                        <input type="email" id="email" name="email" required>
+        <div class="indexContainer">
+            <section>
+                <div class="contact conta" id="contact">
+                    <div class="cajaFormu">
+                        <h1 style="color: lightgrey;">Envianos tus consultas y sugerencias</h1>
+                        <form>
+                            <input type="text" placeholder="Nombre y Apellido:" class="box" name="Nombre" required>
+                            <input type="email" placeholder="Email:" class="box" name="Email" required>
+                            <input type="text" placeholder="Telefono:" class="box" name="Telefono">
+                            <textarea class="box" placeholder="Mensaje:" id="textarea" cols="30" rows="10" name="Consulta" required></textarea>
+                            <input type="submit" value="Enviar" class="btn" id="submitConsultas">
+                        </form>
                     </div>
-                    <div class="step">
-                        <h2>Paso 2: Preferencias de cine</h2>
-                        <p>Seleccione sus géneros de cine favoritos:</p>
-                        <input type="checkbox" id="accion" name="generos[]" value="accion" required>
-                        <label for="accion">Acción</label>
-                        <input type="checkbox" id="aventura" name="generos[]" value="aventura" required>
-                        <label for="aventura">Aventura</label>
-                        <input type="checkbox" id="drama" name="generos[]" value="drama" required>
-                        <label for="drama">Drama</label>
-                        <input type="checkbox" id="comedia" name="generos[]" value="comedia" required>
-                        <label for="comedia">Comedia</label>
+                    <div class="cajaFormu">
+                        <h2 style="color: lightgrey;">¡Recibe en tu bandeja de entrada las últimas novedades del mundo del cine suscribiéndote a nuestro boletín!</h2>
+                        <form id="signup-form" method="POST">
+                            <div class="step">
+                                <h2>Paso 1: Información personal</h2>
+                                <label for="name">Nombre completo:</label>
+                                <input type="text" id="name" name="name" required>
+                                <label for="email">Correo electrónico:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="step">
+                                <h2>Paso 2: Preferencias de cine</h2>
+                                <p>Seleccione sus géneros de cine favoritos:</p>
+                                <input type="checkbox" id="accion" name="generos[]" value="accion" required>
+                                <label for="accion">Acción</label>
+                                <input type="checkbox" id="aventura" name="generos[]" value="aventura" required>
+                                <label for="aventura">Aventura</label>
+                                <input type="checkbox" id="drama" name="generos[]" value="drama" required>
+                                <label for="drama">Drama</label>
+                                <input type="checkbox" id="comedia" name="generos[]" value="comedia" required>
+                                <label for="comedia">Comedia</label>
+                            </div>
+                            <div class="step">
+                                <h2>Paso 3: Confirmación</h2>
+                                <p>Por favor, revise su información antes de enviar:</p>
+                                <p>Nombre completo: <span id="review-name"></span></p>
+                                <p>Correo electrónico: <span id="review-email"></span></p>
+                                <p>Géneros de cine favoritos:</p>
+                                <ul id="review-generos"></ul>
+                            </div>
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+                            <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+                            <input type="submit" id="submitBtn" value="Suscribirse" style="display:none;" required>
+                        </form>
                     </div>
-                    <div class="step">
-                        <h2>Paso 3: Confirmación</h2>
-                        <p>Por favor, revise su información antes de enviar:</p>
-                        <p>Nombre completo: <span id="review-name"></span></p>
-                        <p>Correo electrónico: <span id="review-email"></span></p>
-                        <p>Géneros de cine favoritos:</p>
-                        <ul id="review-generos"></ul>
-                    </div>
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
-                    <input type="submit" id="submitBtn" value="Suscribirse" style="display:none;" required>
-                </form>
-            </div>
+                </div>
+            </section>
+            
         </div>
     </main>
     <footer>

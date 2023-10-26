@@ -58,7 +58,7 @@
   
   .pelicula:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 1.5rem white;
+    box-shadow: var(--background-color);
   }
   
   .overview td {

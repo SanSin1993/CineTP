@@ -14,12 +14,12 @@ body{
   }
   
   #Index section {
-    width: 80%;
-    background-color: black;
+    width: 90%;
+    background-color: var(--background-color);
     font-size: 25px;
     text-align: center;
     border-radius: 10px;
-    color: grey;
+    color: black;
     padding: 20px;
   }
   
@@ -28,7 +28,7 @@ body{
     height: 400px;
     padding: 10px 60px;
   }
-  
+ 
   
   .indexContainer {
     display: flex;
