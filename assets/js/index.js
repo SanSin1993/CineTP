@@ -1,11 +1,6 @@
 // Este código se ejecuta cuando se carga completamente el contenido de la página.
 document.addEventListener("DOMContentLoaded", async function () {
-  // Si existe un elemento con el ID "logo", se agrega un evento de clic para redirigir a la página de inicio.
-  if (logo) {
-    logo.addEventListener("click", () => {
-      window.location.href = "../index.html";
-    });
-  }
+
 
   // Definición de claves de API para acceder a datos de películas.
   const apiKeyEstrenos = '7f194cf23e4e2305fe113aa39e25592f';
@@ -110,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       // Utilizar SweetAlert para mostrar la fecha de estreno.
       Swal.fire({
-        title: `${title} - Fecha de Estreno`,
+        title: `${title} <br>- Fecha de Estreno`,
         text: `La película se estrena el ${formattedReleaseDate}`,
         icon: "info",
       });

@@ -2,13 +2,13 @@
 
 .contact {
     display: flex;
-    justify-content: space-between; /* Para colocar los formularios uno al lado del otro */
+    justify-content: space-between;
     padding-bottom: 10px;
 }
 
 .contact .cajaFormu {
     flex: 1;
-    margin: 0 10px; /* Margen entre los formularios */
+    margin: 0 10px;
 }
 
 .contact form {

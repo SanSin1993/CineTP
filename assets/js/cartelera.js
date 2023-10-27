@@ -26,11 +26,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  if (logo) {
-    logo.addEventListener("click", () => {
-        window.location.href = "../index.html";
-    });
-}
 
 const apiKey = '7f194cf23e4e2305fe113aa39e25592f';
 const baseUrl = 'https://api.themoviedb.org/3/discover/movie';
@@ -62,7 +57,7 @@ async function fetchDataForPages() {
         const filteredData = data.results.filter(movie => (
           movie.original_language === "en" &&
           movie.release_date <= currentDate && // Comparar con la fecha actual
-          movie.release_date <= '2023-09-01' &&
+          movie.release_date >= '2023-09-01' &&
           movie.vote_average > 7
         ));
 
@@ -131,7 +126,7 @@ function createMovieElement(movie, category) {
   peliculaElegida.innerHTML = `
     <div class="peli" data-poster-path="${movie.poster_path}">
       <img src="${IMG_PATH + poster_path}" alt="${title}">
-      <div class="peliculaInfo">
+      <div class="peliculaInfo hidden">
           <h3>${title}</h3>
       </div>
 

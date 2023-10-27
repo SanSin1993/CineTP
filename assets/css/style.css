@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* Resto de tus importaciones de CSS */
+
 @import url("contacto.css");
 @import url("nosotros.css");
 @import url("index.css");
 @import url("cartelera.css");
 @import url("Entrada.css");
 
-/* Paleta de colores */
+
 :root {
   --primary-color: #1c2747;
   --secondary-color: #151515;
   --background-color: #6b8eaa;
-  --text-color-secundary: #FFFFFF; /* Define el color de texto secundario */
+  --text-color-secundary: #FFFFFF; /
 }
 
 * {
@@ -87,8 +87,9 @@ header div {
   margin-top: 1rem;
 }
 
+
 .navMenu li a {
-  color: var(--text-color-secundary); /* Utiliza la variable de color de texto secundario */
+  color: var(--text-color-secundary);
   text-decoration: none;
   font-size: 1.5rem;
   color: whitesmoke;
@@ -155,22 +156,14 @@ footer p {
   font-size: 0.8rem;
 }
 
-.mapa {
-  height: 6rem;
-  width: 12rem;
-}
+
 
 .socialMediaItem {
   margin: auto;
 }
 
-/* Media Query para smartphones */
-@media (max-width: 480px) {
-  body {
-    width: 100%;
-    height: auto;
-    * {
-      transform: scale(0.7);
-    }
-  }
+a.logo-link {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
 }

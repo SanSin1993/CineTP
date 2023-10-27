@@ -1,13 +1,5 @@
-// Esperar a que el documento HTML esté completamente cargado
 document.addEventListener("DOMContentLoaded", async function() {
     
-    // Obtener el elemento del logo y agregar un evento de clic para redirigir al inicio
-    var logo = document.querySelector(".logo");
-    if (logo) {
-        logo.addEventListener("click", () => {
-            window.location.href = "../index.html";
-        });
-    }
 
     // Obtener el botón "Comprar" y el contenedor principal
     const btnComprar = document.getElementById("btnComprar");
@@ -173,18 +165,23 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 
-// Agregar un evento de clic al botón "Comprar" para generar y mostrar un PDF
-btnComprar.addEventListener('click', () => {
-    const diaActivo = ds.querySelector('.dia.activo');
-    const horaActiva = hs.querySelector('.horario.activo');
+    // Agregar un evento de clic al botón "Comprar" para generar y mostrar un PDF
+    btnComprar.addEventListener('click', () => {
+        const diaActivo = ds.querySelector('.dia.activo');
+        const horaActiva = hs.querySelector('.horario.activo');
 
-    if (!diaActivo || !horaActiva) {
-        alert("Por favor, elige un día y un horario de función antes de comprar.");
-        return; // Detiene la función si no se ha elegido día y horario
-    }
+        if (!diaActivo || !horaActiva) {
+            // Reemplazar la alerta por SweetAlert
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Por favor, elige un día y un horario de función antes de comprar.'
+            });
+            return; // Detiene la función si no se ha elegido día y horario
+        }
 
-    pdfCompra();
-});
+        pdfCompra();
+    });
 
     // Función para generar el PDF de la compra
     function pdfCompra() {
@@ -195,22 +192,23 @@ btnComprar.addEventListener('click', () => {
         const horario = horaActiva ? horaActiva.innerText : "Horario no seleccionado";
 
         // Obtener la cantidad de entradas y el costo total
-         const cantidadEntradas = parseInt(cantEntradasInput.value, 10);
-          const precioBase = 3000;
-          const precioTotal = isNaN(cantidadEntradas) || cantidadEntradas < 1 ? precioBase : cantidadEntradas * precioBase;
-          // Función para eliminar tildes y caracteres especiales
-            function eliminarTildes(texto) {
-              return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            }
+        const cantidadEntradas = parseInt(cantEntradasInput.value, 10);
+        const precioBase = 3000;
+        const precioTotal = isNaN(cantidadEntradas) || cantidadEntradas < 1 ? precioBase : cantidadEntradas * precioBase;
 
-            // Llamamos a la función eliminarTildes para quitar las tildes de las variables
-            const peliculaSinTildes = eliminarTildes(title);
-            const diaSinTildes = eliminarTildes(dia);
-            const horarioSinTildes = eliminarTildes(horario);
+        // Función para eliminar tildes y caracteres especiales
+        function eliminarTildes(texto) {
+            return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
 
-           // Crear un nuevo documento PDF
-           const doc = new jsPDF();
-          doc.text(
+        // Llamamos a la función eliminarTildes para quitar las tildes de las variables
+        const peliculaSinTildes = eliminarTildes(title);
+        const diaSinTildes = eliminarTildes(dia);
+        const horarioSinTildes = eliminarTildes(horario);
+
+        // Crear un nuevo documento PDF
+        const doc = new jsPDF();
+        doc.text(
             `             ----------------------------------------
                 CINE TP - RESERVA DE ENTRADA
              ----------------------------------------
@@ -229,17 +227,23 @@ btnComprar.addEventListener('click', () => {
              ----------------------------------------
                 ¡Gracias por elegir CINE TP!
              ----------------------------------------`
-        
             , 10, 10);
 
         // Generar la URL de datos para el PDF
         const pdfContent = doc.output('datauristring');
-        
+
         // Crear un iframe para mostrar el PDF
         const iframe = `<iframe width='100%' height='100%' src='${pdfContent}'></iframe>`;
         const newWindow = window.open();
         newWindow.document.open();
         newWindow.document.write(iframe);
         newWindow.document.close();
+        
+        // Mostrar una alerta de confirmación con SweetAlert
+        Swal.fire({
+            icon: 'success',
+            title: 'Compra Exitosa',
+            text: 'Tu compra se ha realizado con éxito. ¡Gracias por elegir CINE TP!'
+        });
     }
 });

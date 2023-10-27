@@ -2,8 +2,6 @@
 @import url("style.css");
 
 
-
-
 .mainContainer {
     display: flex;
     flex-direction: column;
@@ -13,12 +11,14 @@
     color: black;
 }
 
+
 .tituloPeli {
     font-size: 24px;
     text-align: center;
     margin-top: 10px;
     color: var(--text-color);
 }
+
 
 #sinapsis {
     text-align: center;
@@ -27,10 +27,12 @@
 }
 
 
-.dia {
+.dia,
+.horario {
     cursor: pointer;
     background-color: #6b8eaa;
     color: black;
+    border: none;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
@@ -39,7 +41,102 @@
     transition: background-color 0.3s;
 }
 
-.dia.activo {
+.dia.activo,
+.horario.activo {
     background-color: whitesmoke;
     color: black;
+}
+
+
+#dias,
+#horarios {
+    display: flex;
+}
+
+
+#cantEntradas label {
+    margin-left: 2rem;
+    text-decoration: underline;
+}
+
+#cantEntradas input {
+    background-color: transparent;
+    margin: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'comicNeue';
+    height: 2rem;
+    width: 3rem;
+    border: none;
+    border-bottom: 2px solid white;
+}
+
+
+.overimg {
+    color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    padding: 1.3rem;
+    text-align: center;
+    height: 3rem;
+    width: 3rem;
+}
+
+.sig {
+    margin-left: -3.2rem;
+    background-image: url(./recourses/icons8-next-page.gif);
+}
+
+.pre {
+    margin-right: -3.2rem;
+    background-image: url(./recourses/icons8-back-page.gif);
+    position: relative;
+    z-index: 1;
+}
+
+
+.items {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.items li {
+    margin: auto;
+    margin-top: -3rem;
+    text-align: center;
+}
+
+
+::marker {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem;
+}
+
+
+.detalles {
+    padding-left: 1rem;
+    width: 50%;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.btnComprar {
+    background-color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    color: black;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btnComprar:hover {
+    background-color: white;
 }
