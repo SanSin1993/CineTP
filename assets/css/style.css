@@ -27,6 +27,12 @@ body {
   width: 100vw;
 }
 
+a.logo-link {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
 .body1vh {
   height: 100vh;
 }
@@ -43,6 +49,7 @@ section {
   box-shadow: 0px 0px 1.5rem var(--primary-color);
   padding: 20px;
 }
+
 
 /* Encabezado */
 header {
